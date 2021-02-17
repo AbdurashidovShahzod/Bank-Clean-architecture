@@ -9,6 +9,7 @@ import uz.unzosoft.dagger2.App
 import uz.unzosoft.dagger2.di.module.ActivityModule
 import uz.unzosoft.dagger2.di.module.NetworkModule
 import uz.unzosoft.dagger2.di.module.RepositoryModule
+import uz.unzosoft.dagger2.model.LocalStorage
 import javax.inject.Singleton
 
 @Component(
@@ -20,7 +21,6 @@ import javax.inject.Singleton
 )
 @Singleton
 interface AppComponent : AndroidInjector<App> {
-
 
     @Component.Factory
     interface Builder {
