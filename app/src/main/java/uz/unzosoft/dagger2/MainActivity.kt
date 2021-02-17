@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dagger.android.DaggerActivity
 import dagger.android.support.DaggerAppCompatActivity
+import okhttp3.internal.wait
 import uz.unzosoft.dagger2.databinding.ActivityMainBinding
 import uz.unzosoft.dagger2.model.AuthApi
 import uz.unzosoft.dagger2.model.LocalStorage
@@ -15,8 +16,6 @@ class MainActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var localStorage: LocalStorage
 
-    @Inject
-    lateinit var api: AuthApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

@@ -9,6 +9,7 @@ import uz.unzosoft.dagger2.App
 import uz.unzosoft.dagger2.di.module.ActivityModule
 import uz.unzosoft.dagger2.di.module.NetworkModule
 import uz.unzosoft.dagger2.di.module.RepositoryModule
+import javax.inject.Singleton
 
 @Component(
     modules = [
@@ -17,7 +18,9 @@ import uz.unzosoft.dagger2.di.module.RepositoryModule
         NetworkModule::class,
         RepositoryModule::class]
 )
+@Singleton
 interface AppComponent : AndroidInjector<App> {
+
 
     @Component.Factory
     interface Builder {
