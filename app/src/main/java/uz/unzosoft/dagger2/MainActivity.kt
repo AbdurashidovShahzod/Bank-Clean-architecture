@@ -16,6 +16,7 @@ class MainActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var localStorage: LocalStorage
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
