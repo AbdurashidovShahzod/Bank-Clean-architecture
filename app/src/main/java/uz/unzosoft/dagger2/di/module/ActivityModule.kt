@@ -13,4 +13,5 @@ interface ActivityModule {
         modules = []
     )
     fun mainActivity(): MainActivity
+
 }
