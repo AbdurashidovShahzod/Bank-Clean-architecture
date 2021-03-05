@@ -7,4 +7,6 @@ import retrofit2.http.GET
 interface AuthApi {
     @GET("/data")
     fun getInfo(): String
+    @GET("/value")
+    fun getValueInfo():String
 }
