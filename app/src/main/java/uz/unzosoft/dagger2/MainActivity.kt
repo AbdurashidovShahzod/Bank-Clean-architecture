@@ -2,6 +2,7 @@ package uz.unzosoft.dagger2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.CalendarContract
 import dagger.android.DaggerActivity
 import dagger.android.support.DaggerAppCompatActivity
 import okhttp3.internal.wait
@@ -16,6 +17,9 @@ class MainActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var localStorage: LocalStorage
 
+    @Inject
+    lateinit var appMemberwise: App_MembersInjector
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,5 +28,6 @@ class MainActivity : DaggerAppCompatActivity() {
         binding.apply {
             tv.text = localStorage.storage
         }
+        appMemberwise.injectMembers(object : )
     }
 }
