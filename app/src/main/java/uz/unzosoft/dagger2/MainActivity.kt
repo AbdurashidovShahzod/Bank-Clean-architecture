@@ -17,10 +17,6 @@ class MainActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var localStorage: LocalStorage
 
-    @Inject
-    lateinit var appMemberwise: App_MembersInjector
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -28,6 +24,5 @@ class MainActivity : DaggerAppCompatActivity() {
         binding.apply {
             tv.text = localStorage.storage
         }
-        appMemberwise.injectMembers(object : )
     }
 }
