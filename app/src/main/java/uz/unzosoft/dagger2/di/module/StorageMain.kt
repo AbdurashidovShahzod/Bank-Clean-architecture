@@ -4,5 +4,5 @@ import dagger.Module
 
 @Module
 class StorageMain {
-
+    val roomStorageMain: String = "Main stoarage room"
 }
