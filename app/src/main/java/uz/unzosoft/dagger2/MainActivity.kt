@@ -7,6 +7,7 @@ import dagger.android.DaggerActivity
 import dagger.android.support.DaggerAppCompatActivity
 import okhttp3.internal.wait
 import uz.unzosoft.dagger2.databinding.ActivityMainBinding
+import uz.unzosoft.dagger2.di.module.StorageMain
 import uz.unzosoft.dagger2.model.ApiStorage
 import uz.unzosoft.dagger2.model.AuthApi
 import uz.unzosoft.dagger2.model.LocalStorage
@@ -20,6 +21,9 @@ class MainActivity : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var apiInject: ApiStorage
+
+    @Inject
+    lateinit var storageMain: StorageMain
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
