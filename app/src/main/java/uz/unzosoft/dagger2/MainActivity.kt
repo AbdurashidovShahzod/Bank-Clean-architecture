@@ -30,7 +30,7 @@ class MainActivity : DaggerAppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.apply {
-            tv.text = apiInject.apiStorage
+            tv.text = "${localStorage.storage} ${apiInject.apiStorage} ${storageMain.roomStorageMain}"
         }
     }
 }
