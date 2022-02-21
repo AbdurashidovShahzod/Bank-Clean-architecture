@@ -6,9 +6,7 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import uz.unzosoft.dagger2.App
-import uz.unzosoft.dagger2.di.module.ActivityModule
-import uz.unzosoft.dagger2.di.module.NetworkModule
-import uz.unzosoft.dagger2.di.module.RepositoryModule
+import uz.unzosoft.dagger2.di.module.*
 import uz.unzosoft.dagger2.model.LocalStorage
 import javax.inject.Singleton
 
@@ -17,7 +15,10 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         ActivityModule::class,
         NetworkModule::class,
-        RepositoryModule::class]
+        RepositoryModule::class,
+        MainViewModelModule::class,
+        ApiModule::class,
+    ]
 )
 
 @Singleton

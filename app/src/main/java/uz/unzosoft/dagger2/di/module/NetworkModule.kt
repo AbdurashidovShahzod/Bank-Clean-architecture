@@ -3,7 +3,6 @@ package uz.unzosoft.dagger2.di.module
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
-import uz.unzosoft.dagger2.di.scope.ActivityScope
 import javax.inject.Singleton
 
 @Module
