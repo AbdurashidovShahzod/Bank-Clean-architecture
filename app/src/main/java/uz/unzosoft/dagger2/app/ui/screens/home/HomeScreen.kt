@@ -69,9 +69,7 @@ class HomeScreen : BaseScreen<ScreenHomeBinding>(), RepositoryAdapter.Callback {
         Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
     }
     private val nextScreenObserver = Observer<Unit> {
-//        val bundle = Bundle()
-//        bundle.putString(URL_KEY, HTML_URL)
-//        findNavController().navigate(R.id.action_homeScreen_to_detailsScreen, bundle)
+
     }
 
     private fun addTextChangeListeners() {
@@ -91,10 +89,7 @@ class HomeScreen : BaseScreen<ScreenHomeBinding>(), RepositoryAdapter.Callback {
 
     override fun repository(dto: ItemsDto) {
         HTML_URL = dto.htmlUrl.toString()
-        Toast.makeText(requireContext(), "$HTML_URL", Toast.LENGTH_SHORT).show()
-
-//        val bundle = Bundle()
-//        bundle.putString(URL_KEY, HTML_URL)
-//        findNavController().navigate(R.id.action_homeScreen_to_detailsScreen, bundle)
+        val action = HomeScreenDirections.actionHomeScreenToDetailsScreen(HTML_URL)
+        findNavController().navigate(action)
     }
 }
