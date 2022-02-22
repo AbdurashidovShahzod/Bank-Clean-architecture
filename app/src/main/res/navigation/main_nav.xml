@@ -9,10 +9,18 @@
         android:id="@+id/homeScreen"
         android:name="uz.unzosoft.dagger2.app.ui.screens.home.HomeScreen"
         android:label="screen_home"
-        tools:layout="@layout/screen_home" />
+        tools:layout="@layout/screen_home" >
+        <action
+            android:id="@+id/action_homeScreen_to_detailsScreen"
+            app:destination="@id/detailsScreen" />
+    </fragment>
     <fragment
-        android:id="@+id/splashScreen"
-        android:name="uz.unzosoft.dagger2.app.ui.screens.splash.SplashScreen"
-        android:label="splash_screen"
-        tools:layout="@layout/splash_screen" />
+        android:id="@+id/detailsScreen"
+        android:name="uz.unzosoft.dagger2.app.ui.screens.details.DetailsScreen"
+        android:label="details_screen"
+        tools:layout="@layout/details_screen" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
 </navigation>

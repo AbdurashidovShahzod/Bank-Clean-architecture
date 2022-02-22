@@ -1,5 +1,7 @@
 package uz.unzosoft.dagger2.app.ui.base
 
+import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.viewbinding.ViewBinding
 import dagger.android.support.DaggerFragment
+import uz.unzosoft.dagger2.app.ui.extensions.transparentStatusBar
 import uz.unzosoft.dagger2.app.ui.utils.ViewModelProvideFactory
 import javax.inject.Inject
 
@@ -47,6 +50,7 @@ abstract class BaseScreen<T : ViewBinding>() : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.window?.transparentStatusBar()
         onViewCreate(view, savedInstanceState)
     }
 
@@ -69,6 +73,4 @@ abstract class BaseScreen<T : ViewBinding>() : DaggerFragment() {
         super.onDestroy()
         _binding = null
     }
-
-
 }

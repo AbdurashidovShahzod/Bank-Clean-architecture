@@ -13,7 +13,7 @@ import uz.unzosoft.dagger2.domain.models.ItemsDto
  * company QQBank
  * shahzod9933@gmail.com
  */
-class RepositoryAdapter : SuperListAdapter<ItemsDto>(
+class RepositoryAdapter(private val listener: Callback) : SuperListAdapter<ItemsDto>(
     R.layout.item_repository,
     { oldItem, newItem -> oldItem == newItem },
     { oldItem, newItem -> oldItem == newItem },
@@ -30,6 +30,13 @@ class RepositoryAdapter : SuperListAdapter<ItemsDto>(
             crossfade(true)
             transformations(CircleCropTransformation())
         }
+        binding.root.setOnClickListener {
+            listener.repository(t)
+        }
+    }
+
+    interface Callback {
+        fun repository(dto: ItemsDto)
     }
 
 }
