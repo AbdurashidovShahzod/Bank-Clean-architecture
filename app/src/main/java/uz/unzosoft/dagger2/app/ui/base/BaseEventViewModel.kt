@@ -2,8 +2,8 @@ package uz.unzosoft.dagger2.app.ui.base
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import uz.xsoft.domain.soruce.case.Event
-import uz.xsoft.domain.soruce.case.EventListener
+import uz.unzosoft.dagger2.domain.util.Event
+import uz.unzosoft.dagger2.domain.util.EventListener
 
 abstract class BaseEventViewModel<T>() : BaseViewModel() {
     protected val _success = MutableLiveData<List<T>>()

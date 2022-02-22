@@ -1,4 +1,4 @@
-package uz.unzosoft.dagger2.app
+package uz.unzosoft.dagger2.app.ui.app
 
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication

@@ -22,3 +22,7 @@ annotation class EncryptedCacheQualifier
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class ServiceQualifier
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class Repository

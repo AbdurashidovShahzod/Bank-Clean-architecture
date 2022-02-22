@@ -8,5 +8,4 @@ package uz.unzosoft.dagger2.app.ui.utils
  */
 object Config {
     const val BASE_URL = "https://api.github.com/search/"
-    // repositories
 }

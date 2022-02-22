@@ -1,6 +1,7 @@
 package uz.unzosoft.dagger2.app.di.module
 
 import android.content.Context
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -25,21 +26,18 @@ class NetworkModule {
     fun retrofit(): String =BASE_URL
 
     @Provides
-    @ServiceQualifier
     fun provideRetrofitInstance(
-        //okhttpClient: OkHttpClient,
-        gsonConverterFactory: GsonConverterFactory,
-        baseUrl:String
+        okhttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            //.client(okhttpClient)
-//            .baseUrl(BASE_URL_TEST)
-            .baseUrl(baseUrl)
+            .client(okhttpClient)
+            .baseUrl(BASE_URL)
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .addConverterFactory(gsonConverterFactory)
-//            .addConverterFactory(provideFactory())
             .build()
     }
+
 
     @Provides
     fun gson(): Gson {
@@ -49,7 +47,18 @@ class NetworkModule {
 
     @Provides
     fun gsonConvertFactory(gson: Gson): GsonConverterFactory {
-        return GsonConverterFactory.create(gson)
+        return GsonConverterFactory
+            .create(gson)
+    }
+
+
+    @Provides
+    fun okHttpClient(cache: Cache, httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+        return OkHttpClient()
+            .newBuilder()
+            .cache(cache)
+            .addInterceptor(httpLoggingInterceptor)
+            .build()
     }
 
 
@@ -58,5 +67,19 @@ class NetworkModule {
         return Cache(file, 20 * 100 * 100)//(20)MB
     }
 
+
+    @Provides
+    fun file(context: Context): File {
+        val file = File(context.cacheDir, "HttpCache")
+        file.mkdirs()
+        return file
+    }
+
+    @Provides
+    fun httpLoggingInterceptor(): HttpLoggingInterceptor {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        return httpLoggingInterceptor
+    }
 
 }

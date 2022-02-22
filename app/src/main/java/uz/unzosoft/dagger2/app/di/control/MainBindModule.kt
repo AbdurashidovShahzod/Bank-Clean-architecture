@@ -4,14 +4,12 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import uz.unzosoft.dagger2.app.di.main.MainViewModelModule
 import uz.unzosoft.dagger2.app.di.main.ScreenBuildModule
-import uz.unzosoft.dagger2.app.di.module.ApiModule
-import uz.unzosoft.dagger2.app.di.module.NetworkModule
-import uz.unzosoft.dagger2.app.di.module.RepositoryModule
+import uz.unzosoft.dagger2.app.di.module.*
 import uz.unzosoft.dagger2.app.di.scope.MainScope
 import uz.unzosoft.dagger2.app.ui.activity.MainActivity
 
 @Module
-interface ActivityBindModule {
+interface MainBindModule {
 
     @MainScope
     @ContributesAndroidInjector(
@@ -20,7 +18,9 @@ interface ActivityBindModule {
             ScreenBuildModule::class,
             NetworkModule::class,
             ApiModule::class,
-            RepositoryModule::class
+            DataSourceModule::class,
+            RepositoryModule::class,
+            UseCaseModule::class
         ]
     )
     fun mainActivity(): MainActivity

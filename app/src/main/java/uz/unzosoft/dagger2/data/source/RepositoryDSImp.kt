@@ -62,12 +62,6 @@ class RepositoryDSImp @Inject constructor(
                 }
             } catch (e: Exception) {
                 when (e) {
-////                is NullPointerException -> Error(Exception("Data is Empty"))
-////                is UnknownHostException -> Error(ServerException("Not connection with server"))
-////                is SSLHandshakeException -> Error(ServerException("Not connection with server"))
-////                is SSLException -> Error(ServerException("Not connection with server"))
-////                is SocketException -> Error(SocketException("Not connection with server"))
-//            else -> Error(Exception("Not connection with server."))
                     else -> ResourceUI.Error(e)
                 }
             }

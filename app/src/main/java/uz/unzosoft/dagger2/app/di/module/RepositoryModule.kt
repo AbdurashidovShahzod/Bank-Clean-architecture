@@ -1,12 +1,13 @@
 package uz.unzosoft.dagger2.app.di.module
 
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
-import uz.unzosoft.dagger2.app.model.LocalStorage
+import uz.unzosoft.dagger2.data.repository.GitHubRepositoryImp
+import uz.unzosoft.dagger2.domain.repository.GitHubRepository
 
 @Module
-class RepositoryModule {
+abstract class RepositoryModule {
 
-    @Provides
-    fun getLocalStorage(): LocalStorage = LocalStorage()
+    @Binds
+    abstract fun bindGithubRepository(gitHubRepositoryImp: GitHubRepositoryImp): GitHubRepository
 }
