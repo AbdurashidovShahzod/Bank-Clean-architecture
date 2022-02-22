@@ -1,5 +1,6 @@
 package uz.unzosoft.dagger2.domain.models
 
+import com.google.gson.annotations.SerializedName
 import uz.unzosoft.dagger2.data.model.Owner
 
 
@@ -19,5 +20,7 @@ data class ItemsDto(
     var description: String? = null,
     var fork: Boolean? = null,
     var url: String? = null,
-    var language: String? = null
+    var language: String? = null,
+    var forks: Int? = null,
+    var watchers: Int? = null
 )

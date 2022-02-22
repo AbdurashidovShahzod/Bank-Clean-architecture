@@ -29,10 +29,13 @@ class HomeScreenViewModel @Inject constructor(
 
     private fun setUpHome() {
         launchVM {
-            useCase.invoke("AbdurashidovShahzod").collect {
-                when(it){
-                    is ResourceUI.Error ->{ Log.d("Zarnigor", "${it.error.message}")}
-                    is ResourceUI.Resource->{
+            _loadingLiveData.value = Unit
+            useCase.invoke("Recycler view").collect {
+                when (it) {
+                    is ResourceUI.Error -> {
+                        Log.d("Zarnigor", "${it.error.message}")
+                    }
+                    is ResourceUI.Resource -> {
                         val data = it.data
                         Log.d("Zarnigor", "${data.items.toString()}")
                         _repositoryLiveData.value = data
