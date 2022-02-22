@@ -82,4 +82,9 @@ dependencies {
      */
     implementation("io.coil-kt:coil:1.4.0")
     implementation("io.coil-kt:coil-svg:0.11.0")
+
+    /**
+     * Corbind
+     */
+//    implementation 'ru.ldralighieri.corbind:corbind:1.5.3'
 }

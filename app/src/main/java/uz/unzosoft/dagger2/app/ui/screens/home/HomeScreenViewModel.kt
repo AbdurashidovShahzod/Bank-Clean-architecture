@@ -23,14 +23,10 @@ class HomeScreenViewModel @Inject constructor(
     private val _repositoryLiveData = MutableLiveData<RepositoryDto>()
     val repositoryLiveData: LiveData<RepositoryDto> get() = _repositoryLiveData
 
-    init {
-        setUpHome()
-    }
-
-    private fun setUpHome() {
+     fun searchRepository(search: String) {
         launchVM {
             _loadingLiveData.value = Unit
-            useCase.invoke("Recycler view").collect {
+            useCase.invoke(search).collect {
                 when (it) {
                     is ResourceUI.Error -> {
                         Log.d("Zarnigor", "${it.error.message}")
